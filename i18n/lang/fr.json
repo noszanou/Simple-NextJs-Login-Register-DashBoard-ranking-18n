@@ -1,0 +1,25 @@
+{
+    "Lang":{
+        "en": "Anglais",
+        "fr": "Français"
+    },
+    "MetaData": {
+        "title": "title fr",
+        "description": "description fr"
+    },
+    "RankingMetaData": {
+        "title":"Title fr",
+        "description": "description fr"
+    },
+    "NavBar": {
+        "logout": "Déconnexion",
+        "login": "Connexion",
+        "register": "Inscription"
+    },
+
+    "Login":{
+        "FieldRequired": "This field is required",
+        "UserNotFound": "User not found",
+        "InvalidCredentials": "Invalid credentials"
+    }
+}
