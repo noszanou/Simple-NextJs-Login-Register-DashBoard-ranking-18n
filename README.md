@@ -90,7 +90,7 @@ This project uses `next-intl` with a custom `getRequestConfig()` to load transla
 │   └── cookies.ts          # Cookie utilities
 ├── public/                 # Static assets
 └── ...
-
+/
 ---
 ## 🔐 Authentication
 
