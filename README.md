@@ -74,7 +74,7 @@ This project uses `next-intl` with a custom `getRequestConfig()` to load transla
 
 ---
 ## 📁 Project Structure
-
+```
 /
 ├── app/
 │   ├── login/              # Login page
@@ -90,7 +90,7 @@ This project uses `next-intl` with a custom `getRequestConfig()` to load transla
 │   └── cookies.ts          # Cookie utilities
 ├── public/                 # Static assets
 └── ...
-/
+```
 ---
 ## 🔐 Authentication
 
@@ -148,4 +148,4 @@ Made with ❤️ by [Noszanou](https://github.com/noszanou)
 
 ## ⭐ Support
 
-If you like this project, don’t forget to give it a ⭐ on GitHub! 
+If you like this project, don’t forget to give it a ⭐ on GitHub!
