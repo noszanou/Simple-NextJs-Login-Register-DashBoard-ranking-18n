@@ -1,45 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🌐 Simple Next.js Login / Register / Dashboard / Ranking with i18n
 
-First, run the development server:
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-14-blue)](https://nextjs.org/)
+[![Language](https://img.shields.io/badge/language-TypeScript-blue)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/styling-TailwindCSS-38B2AC)](https://tailwindcss.com/)
+[![i18n](https://img.shields.io/badge/i18n-next--intl-yellow)](https://next-intl-docs.vercel.app/)
+[![Stars](https://img.shields.io/github/stars/noszanou/Simple-NextJs-Login-Register-DashBoard-ranking-18n?style=social)](https://github.com/noszanou/Simple-NextJs-Login-Register-DashBoard-ranking-18n/stargazers)
+
+---
+
+## 📸 Overview
+
+A complete full-stack **Next.js** project with user registration, login, protected dashboard, player ranking, and multilingual support using `next-intl`.
+
+Perfect as a base for building a web app with authentication and i18n built-in.
+
+---
+
+## 🚀 Features
+
+- 🔐 User authentication: **Register** / **Login**
+- 👤 Protected **Dashboard**
+- 📊 Public **Ranking** page
+- 🌍 Multilingual support with `next-intl` (FR/EN out of the box)
+- 🍪 Language detection via `locale` cookie
+- 🎨 Clean & responsive UI using TailwindCSS
+- 🧠 API integration with secure routes
+
+---
+
+## 🧰 Tech Stack
+
+- **Next.js 14+ (App Router)**
+- **TypeScript**
+- **TailwindCSS**
+- **next-intl** for internationalization
+- **Cookies** for language persistence
+- **API Routes** for backend logic
+
+---
+
+## 📦 Installation
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/noszanou/Simple-NextJs-Login-Register-DashBoard-ranking-18n.git
+cd Simple-NextJs-Login-Register-DashBoard-ranking-18n
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2 . Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Start the development server
+```bash
+npm run dev
+```
+App will be running on http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
+## 🌐 Internationalization (i18n)
 
-## Learn More
+This project uses `next-intl` with a custom `getRequestConfig()` to load translation messages based on the `locale` cookie.
 
-To learn more about Next.js, take a look at the following resources:
+### Available languages:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   🇫🇷 French (`fr`)
+    
+-   🇬🇧 English (`en`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
+## 📁 Project Structure
 
-## Deploy on Vercel
+/
+├── app/
+│   ├── login/              # Login page
+│   ├── register/           # Register page
+│   ├── dashboard/          # Protected dashboard
+│   ├── ranking/            # Public ranking
+│   └── layout.tsx          # App layout
+├── lib/
+│   └── auth.ts             # Auth logic
+├── middleware.ts           # i18n middleware
+├── translations/           # i18n messages (fr, en)
+├── utils/
+│   └── cookies.ts          # Cookie utilities
+├── public/                 # Static assets
+└── ...
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
+## 🔐 Authentication
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   🔐 Secure login/register flow
+    
+-   🧠 Session management
+    
+-   🔒 Dashboard protected by session middleware
+    
+-   ❌ Redirects unauthorized users
+    
 
+----------
 
-npx next build
+## 📊 Ranking Page
 
-npx prisma migrate dev --name init
-npx prisma generate
+-   Displays a list of top players
+    
+-   Data fetched from a REST API
+    
+-   Easy to integrate with your own backend
+    
 
+----------
 
-npx next start -p 80    
+## 🔒 Security
+
+-   Server-side auth checks
+    
+-   Middleware-protected routes
+    
+-   Clean separation between public & private pages
+----------
+
+## 🧪 API Endpoints
+
+-   `POST /api/register` – Register a new user
+    
+-   `POST /api/login` – Log in a user
+    
+-   `GET /api/ranking` – Public ranking list
+----------
+## 📄 License
+
+This project is licensed under the **MIT License**.  
+Feel free to use, share, and modify it.
+
+----------
+
+## 🙌 Author
+
+Made with ❤️ by [Noszanou](https://github.com/noszanou)
+
+----------
+
+## ⭐ Support
+
+If you like this project, don’t forget to give it a ⭐ on GitHub! 
