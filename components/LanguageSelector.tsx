@@ -1,7 +1,8 @@
 import { useRouter } from "next/navigation";
 import Select, { SingleValue } from "react-select";
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
+import { setCookie } from "cookies-next";
 
 const languages = [
   { value: "en", flag: "/Images/Svg/EN.svg" },
@@ -12,6 +13,7 @@ export default function LanguageSelector() {
 
   const t = useTranslations("Lang");
 
+  const [isPending, startTransition] = useTransition();
   const [locale, setLocale] = useState<string>("");
   const router = useRouter();
 
@@ -24,7 +26,7 @@ export default function LanguageSelector() {
     } else {
       const browserLocale = navigator.language.slice(0, 2);
       setLocale(browserLocale);
-      document.cookie = `locale=${browserLocale}`;
+      setCookie('locale', browserLocale, { path: '/' })
       router.refresh();
     }
   }, [router]);
@@ -34,9 +36,11 @@ export default function LanguageSelector() {
       if (selectedOption.value == locale) {
         return;
       }
-      setLocale(selectedOption.value);
-      document.cookie = `locale=${selectedOption.value}`;
-      router.refresh();
+      setCookie('locale', selectedOption.value, { path: '/' })
+      startTransition(() => {
+        setLocale(selectedOption.value);
+        router.refresh()
+      })
     }
   };
 
