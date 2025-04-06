@@ -3,6 +3,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from '@/server/db'
 import bcrypt from "bcrypt";
 import { AuthOptions } from "next-auth";
+import { loginSchema } from "@/types/zod/login";
 
 export const option: AuthOptions = {
     adapter: PrismaAdapter(prisma),
@@ -14,8 +15,14 @@ export const option: AuthOptions = {
                 password: { label: "Password", type: "password" },
             },
             async authorize(credentials) {
-                if (!credentials?.email || !credentials?.password) {
+                if (!credentials) {
                     throw new Error("FieldRequired");
+                }
+
+                const result = loginSchema.safeParse(credentials);
+                if (!result.success) {
+                    const errorMessages = result.error.errors.map(err => err.message).join(', ');
+                    throw new Error(`${errorMessages}`);
                 }
 
                 const user = await prisma.user.findUnique({
