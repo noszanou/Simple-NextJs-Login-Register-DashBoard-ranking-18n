@@ -20,7 +20,7 @@ export default function Register() {
     mode: "onTouched",
   });
 
-  const t = useTranslations("Register");
+  const t = useTranslations("Global");
   const router = useRouter();
   const [apiError, setApiError] = useState("");
 
@@ -48,24 +48,24 @@ export default function Register() {
         {apiError && <p className="text-red-500 text-center mb-4">{apiError}</p>}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <InputField
-            label="Adresse email"
+            label={t("Email")}
             type="email"
-            placeholder="Entrez votre email"
+            placeholder={t("EnterEmail")}
             registration={register("email")}
             error={errors.email && t(errors.email.message || "")}
           />
           <InputField
-            label="Mot de passe"
+            label={t("Password")}
             type="password"
-            placeholder="Entrez votre mot de passe"
+            placeholder={t("EnterPassword")}
             registration={register("password")}
             error={errors.password && t(errors.password.message || "")}
           />
 
           <InputField
-            label="Confirmez le mot de passe"
+            label={t("ConfirmPassword")}
             type="password"
-            placeholder="Confirmez votre mot de passe"
+            placeholder={t("EnterConfirmPassword")}
             registration={register("confirmPassword")}
             error={errors.confirmPassword && t(errors.confirmPassword.message || "")}
           />
@@ -74,15 +74,15 @@ export default function Register() {
             type="submit"
             className="w-full py-3 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
           >
-            S'inscrire
+            {t("Register")}
           </button>
         </form>
 
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
-            Vous avez déjà un compte ?{" "}
+            {t("AlreadyHaveAccount")}{" "}
             <a href="/login" className="text-blue-600 hover:underline">
-              Se connecter
+            {t("SignIn")}
             </a>
           </p>
         </div>

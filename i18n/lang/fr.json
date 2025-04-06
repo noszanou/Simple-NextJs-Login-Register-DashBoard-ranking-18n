@@ -1,25 +1,43 @@
 {
+    "Global":{
+        "WebName": "Mon site",
+        "Login": "Connexion",
+        "Logout": "Déconnexion",
+        "Register": "S'inscrire",
+        "Ranking": "Classement",
+        "Dashboard": "Tableau de bord",
+        "Email": "Adresse email",
+        "EnterEmail": "Entrez votre adresse email",
+        "Password": "Mot de passe",
+        "EnterPassword": "Entrez votre mot de passe",
+        "ConfirmPassword": "Confirmez le mot de passe",
+        "EnterConfirmPassword": "Entrez le mot de passe de confirmation",
+        "EnterUsername": "Entrez votre nom d'utilisateur",
+        "SignIn": "Se connecter",
+        "ForgotPassword": "Mot de passe oublié",
+        "ResetPassword": "Réinitialiser le mot de passe",
+        "SendResetLink": "Envoyer le lien de réinitialisation",
+        "NoAccount": "Vous n'avez pas de compte ?",
+        "AlreadyHaveAccount": "Vous avez déjà un compte ?",
+        "FieldRequired": "Ce champ est requis",
+        "MailInvalid": "Adresse email invalide",
+        "MinCharPassword": "Le mot de passe doit contenir au moins 6 caractères",
+        "UserNotFound": "Utilisateur non trouvé",
+        "InvalidCredentials": "Identifiants invalides",
+        "PasswordsNotMatch": "Les mots de passe ne correspondent pas",
+        "Welcome": "Bienvenue",
+        "SuccessMessage": "Vous êtes connecté avec succès.",
+        "YourEmail": "Votre email"
+    },
     "Lang":{
         "en": "Anglais",
         "fr": "Français"
     },
-    "MetaData": {
-        "title": "title fr",
-        "description": "description fr"
-    },
-    "RankingMetaData": {
-        "title":"Title fr",
-        "description": "description fr"
-    },
-    "NavBar": {
-        "logout": "Déconnexion",
-        "login": "Connexion",
-        "register": "Inscription"
-    },
 
-    "Login":{
-        "FieldRequired": "This field is required",
-        "UserNotFound": "User not found",
-        "InvalidCredentials": "Invalid credentials"
+    "Ranking":{
+        "Rank": "Rang",
+        "Name": "Nom",
+        "Score": "Score",
+        "Points": "Points"
     }
 }
