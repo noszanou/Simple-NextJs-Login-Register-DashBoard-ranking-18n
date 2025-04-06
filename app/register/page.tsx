@@ -2,27 +2,42 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import InputField from "@/components/InputField";
+import { RegisterFormData, registerSchema } from "@/types/zod/register";
+
 
 export default function Register() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(registerSchema),
+    mode: "onTouched",
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
+  const t = useTranslations("Register");
+  const router = useRouter();
+  const [apiError, setApiError] = useState("");
+
+  const onSubmit = async (data: RegisterFormData) => {
+    setApiError("");
 
     const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify(data),
     });
 
     if (res.ok) {
       router.push("/login");
     } else {
-      setError("Erreur lors de l'inscription, veuillez réessayer.");
+      const json = await res.json();
+      setApiError(json.error || "Erreur lors de l'inscription.");
     }
   };
 
@@ -30,35 +45,30 @@ export default function Register() {
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">Inscription</h1>
-        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Adresse email
-            </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="Entrez votre email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="text-gray-700 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
+        {apiError && <p className="text-red-500 text-center mb-4">{apiError}</p>}
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <InputField
+            label="Adresse email"
+            type="email"
+            placeholder="Entrez votre email"
+            registration={register("email")}
+            error={errors.email && t(errors.email.message || "")}
+          />
+          <InputField
+            label="Mot de passe"
+            type="password"
+            placeholder="Entrez votre mot de passe"
+            registration={register("password")}
+            error={errors.password && t(errors.password.message || "")}
+          />
 
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Mot de passe
-            </label>
-            <input
-              id="password"
-              type="password"
-              placeholder="Entrez votre mot de passe"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="text-gray-700 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
+          <InputField
+            label="Confirmez le mot de passe"
+            type="password"
+            placeholder="Confirmez votre mot de passe"
+            registration={register("confirmPassword")}
+            error={errors.confirmPassword && t(errors.confirmPassword.message || "")}
+          />
 
           <button
             type="submit"

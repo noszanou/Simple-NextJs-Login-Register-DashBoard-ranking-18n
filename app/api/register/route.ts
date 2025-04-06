@@ -1,25 +1,33 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import prisma from '@/server/db'
+import { z } from "zod";
+import { registerSchema } from "@/types/zod/register";
 
 export async function POST(req: Request) {
-  const { email, password } = await req.json();
-
-  if (!email || !password) {
-    return NextResponse.json({ error: "Champs requis" }, { status: 400 });
-  }
-
-  const hashedPassword = await bcrypt.hash(password, 10);
   try {
+    const body = await req.json();
+    const parsed = registerSchema.parse(body);
+    const hashedPassword = await bcrypt.hash(parsed.password, 10);
+
     const user = await prisma.user.create({
-      data: { email, password: hashedPassword },
+      data: {
+        email: parsed.email,
+        password: hashedPassword,
+      },
     });
 
     return NextResponse.json(user);
   } catch (error) {
-    return NextResponse.json(
-      { error: 'User already exists' },
-      { status: 400 }
-    )
+
+    if (error instanceof z.ZodError) {
+      return NextResponse.json({
+        error: error.errors.map((e) => e.message).join(", "),
+      }, { status: 400 });
+    }
+
+    return NextResponse.json({
+      error: "User already exists"
+    }, { status: 400 });
   }
 }
