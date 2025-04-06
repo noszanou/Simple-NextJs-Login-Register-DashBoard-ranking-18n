@@ -7,9 +7,5 @@ export async function GET() {
     take: 10,
   });
 
-  players.forEach(player => {
-    console.log(`Player Name: ${player.name}, Score: ${player.score}`);
-  });
-
   return NextResponse.json(players);
 }

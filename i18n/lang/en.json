@@ -1,26 +1,43 @@
 {
-    "Lang":{
+    "Global": {
+        "WebName": "My site",
+        "Login": "Login",
+        "Logout": "Logout",
+        "Register": "Sign Up",
+        "Ranking": "Ranking",
+        "Dashboard": "Dashboard",
+        "Email": "Email Address",
+        "EnterEmail": "Enter your email address",
+        "Password": "Password",
+        "EnterPassword": "Enter your password",
+        "ConfirmPassword": "Confirm password",
+        "EnterConfirmPassword": "Enter confirmation password",
+        "EnterUsername": "Enter your username",
+        "SignIn": "Sign In",
+        "ForgotPassword": "Forgot Password",
+        "ResetPassword": "Reset Password",
+        "SendResetLink": "Send reset link",
+        "NoAccount": "Don't have an account?",
+        "AlreadyHaveAccount": "Already have an account?",
+        "FieldRequired": "This field is required",
+        "MailInvalid": "Invalid email address",
+        "MinCharPassword": "Password must be at least 6 characters",
+        "UserNotFound": "User not found",
+        "InvalidCredentials": "Invalid credentials",
+        "PasswordsNotMatch": "Passwords do not match",
+        "Welcome": "Welcome",
+        "SuccessMessage": "You have successfully logged in.",
+        "YourEmail": "Your email"
+    },
+    "Lang": {
         "en": "English",
         "fr": "French"
     },
-    "MetaData": {
-        "title": "title en",
-        "description": "description en"
-    },
-    "RankingMetaData": {
-        "title":"title en",
-        "description": "description en"
-    },
-    "NavBar": {
-        "logout": "Logout",
-        "login": "Login",
-        "register": "Register"
-    },
 
-    "Login":{
-        "FieldRequired": "This field is required",
-        "UserNotFound": "User not found",
-        "InvalidCredentials": "Invalid credentials"
+    "Ranking": {
+        "Rank": "Rank",
+        "Name": "Name",
+        "Score": "Score",
+        "Points": "Points"
     }
-
 }
