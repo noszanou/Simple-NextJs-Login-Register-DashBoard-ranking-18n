@@ -44,21 +44,21 @@ export default function Register() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">Inscription</h1>
+        <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">{t("SignUp")}</h1>
         {apiError && <p className="text-red-500 text-center mb-4">{apiError}</p>}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <InputField
             label={t("Email")}
             type="email"
             placeholder={t("EnterEmail")}
-            registration={register("email")}
+            data={register("email")}
             error={errors.email && t(errors.email.message || "")}
           />
           <InputField
             label={t("Password")}
             type="password"
             placeholder={t("EnterPassword")}
-            registration={register("password")}
+            data={register("password")}
             error={errors.password && t(errors.password.message || "")}
           />
 
@@ -66,7 +66,7 @@ export default function Register() {
             label={t("ConfirmPassword")}
             type="password"
             placeholder={t("EnterConfirmPassword")}
-            registration={register("confirmPassword")}
+            data={register("confirmPassword")}
             error={errors.confirmPassword && t(errors.confirmPassword.message || "")}
           />
 

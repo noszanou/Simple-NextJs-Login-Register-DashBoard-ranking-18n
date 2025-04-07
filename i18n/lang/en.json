@@ -3,7 +3,7 @@
         "WebName": "My site",
         "Login": "Login",
         "Logout": "Logout",
-        "Register": "Sign Up",
+        "Register": "Register",
         "Ranking": "Ranking",
         "Dashboard": "Dashboard",
         "Email": "Email Address",
@@ -27,7 +27,8 @@
         "PasswordsNotMatch": "Passwords do not match",
         "Welcome": "Welcome",
         "SuccessMessage": "You have successfully logged in.",
-        "YourEmail": "Your email"
+        "YourEmail": "Your email",
+        "SignUp": "Sign Up"
     },
     "Lang": {
         "en": "English",

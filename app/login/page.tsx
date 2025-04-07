@@ -51,14 +51,14 @@ export default function Login() {
             label={t("Email")}
             type="email"
             placeholder={t("EnterEmail")}
-            registration={register("email")}
+            data={register("email")}
             error={errors.email && t(errors.email.message || "")}
           />
           <InputField
             label={t("Password")}
             type="password"
             placeholder={t("EnterPassword")}
-            registration={register("password")}
+            data={register("password")}
             error={errors.password && t(errors.password.message || "")}
           />
           <button

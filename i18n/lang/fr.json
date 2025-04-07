@@ -27,7 +27,8 @@
         "PasswordsNotMatch": "Les mots de passe ne correspondent pas",
         "Welcome": "Bienvenue",
         "SuccessMessage": "Vous êtes connecté avec succès.",
-        "YourEmail": "Votre email"
+        "YourEmail": "Votre email",
+        "SignUp": "Inscription"
     },
     "Lang":{
         "en": "Anglais",
